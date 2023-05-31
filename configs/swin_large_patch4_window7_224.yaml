@@ -1,0 +1,15 @@
+# only for evaluation
+MODEL:
+  TYPE: swin
+  NAME: swin_large_patch4_window7_224
+  DROP_PATH_RATE: 0.5
+  SWIN:
+    EMBED_DIM: 192
+    DEPTHS: [ 2, 2, 18, 2 ]
+    NUM_HEADS: [ 6, 12, 24, 48 ]
+    WINDOW_SIZE: 7
+
+TRAIN:
+  BASE_LR: 1.25e-4
+  OPTIMIZER:
+    BETAS: (0.9, 0.998)
