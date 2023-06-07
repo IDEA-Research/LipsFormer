@@ -7,7 +7,7 @@ This repo is the official implementation of ["LipsFormer: Introducing Lipschitz 
 Initial commits:
 We release one pretrained model below, the result of the model is 82.70 for LipsFormer-Swin-Tiny. We train the model without using any warmup.
 
-1. Pretrained models on ImageNet-1K ([LipsFormer-Swin-T-IN1K](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_tiny_patch4_window7_224.pth)).
+1. Pretrained models on ImageNet-1K ([LipsFormer-Swin-T-IN1K](https://github.com/cyh1112/LipsFormer/releases/download/checkpoint/lipsformer-swin-tiny.pth)).
 
 In our paper, we compile two versions of LipsFormer. One is built on Swin and the other one is based on CSwin, We do not merge these two code bases. Thank the authors of CSwin and Swin for releasing their code base.
 In this repo, we release the code base based on Swin. You can easily change it to CSwin code. 
