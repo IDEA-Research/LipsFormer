@@ -1,28 +1,6 @@
-# Swin Transformer for Image Classification
+# LipsFormer-Swin for Image Classification
 
-This folder contains the implementation of the Swin Transformer for image classification.
-
-## Model Zoo
-
-### Regular ImageNet-1K trained models
-
-| name | resolution |acc@1 | acc@5 | #params | FLOPs | model |
-|:---:|:---:|:---:|:---:| :---:| :---:|:---:|
-| Swin-T | 224x224 | 81.2 | 95.5 | 28M | 4.5G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_tiny_patch4_window7_224.pth)/[baidu](https://pan.baidu.com/s/156nWJy4Q28rDlrX-rRbI3w) |
-| Swin-S | 224x224 | 83.2 | 96.2 | 50M | 8.7G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_small_patch4_window7_224.pth)/[baidu](https://pan.baidu.com/s/1KFjpj3Efey3LmtE1QqPeQg) |
-| Swin-B | 224x224 | 83.5 | 96.5 | 88M | 15.4G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window7_224.pth)/[baidu](https://pan.baidu.com/s/16bqCTEc70nC_isSsgBSaqQ) |
-| Swin-B | 384x384 | 84.5 | 97.0 | 88M | 47.1G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384.pth)/[baidu](https://pan.baidu.com/s/1xT1cu740-ejW7htUdVLnmw) |
-
-### ImageNet-22K pre-trained models
-
-| name | resolution |acc@1 | acc@5 | #params | FLOPs | 22K model | 1K model |
-|:---: |:---: |:---:|:---:|:---:|:---:|:---:|:---:|
-| Swin-B | 224x224 | 85.2 | 97.5 | 88M | 15.4G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window7_224_22k.pth)/[baidu](https://pan.baidu.com/s/1y1Ec3UlrKSI8IMtEs-oBXA) | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window7_224_22kto1k.pth)/[baidu](https://pan.baidu.com/s/1n_wNkcbRxVXit8r_KrfAVg) |
-| Swin-B | 384x384 | 86.4 | 98.0 | 88M | 47.1G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22k.pth)/[baidu](https://pan.baidu.com/s/1vwJxnJcVqcLZAw9HaqiR6g) | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22kto1k.pth)/[baidu](https://pan.baidu.com/s/1caKTSdoLJYoi4WBcnmWuWg) |
-| Swin-L | 224x224 | 86.3 | 97.9 | 197M | 34.5G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_large_patch4_window7_224_22k.pth)/[baidu](https://pan.baidu.com/s/1pws3rOTFuOebBYP3h6Kx8w) | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_large_patch4_window7_224_22kto1k.pth)/[baidu](https://pan.baidu.com/s/1NkQApMWUhxBGjk1ne6VqBQ) |
-| Swin-L | 384x384 | 87.3 | 98.2 | 197M | 103.9G | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_large_patch4_window12_384_22k.pth)/[baidu](https://pan.baidu.com/s/1sl7o_bJA143OD7UqSLAMoA) | [github](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_large_patch4_window12_384_22kto1k.pth)/[baidu](https://pan.baidu.com/s/1X0FLHQyPOC6Kmv2CmgxJvA) |
-
-Note: access code for `baidu` is `swin`.
+This folder contains the implementation of the LipsFormer-Swin for image classification.
 
 ## Usage
 
@@ -31,15 +9,15 @@ Note: access code for `baidu` is `swin`.
 - Clone this repo:
 
 ```bash
-git clone https://github.com/microsoft/Swin-Transformer.git
-cd Swin-Transformer
+git clone https://github.com/IDEA-Research/LipsFormer.git
+cd LipsFormer
 ```
 
 - Create a conda virtual environment and activate it:
 
 ```bash
-conda create -n swin python=3.7 -y
-conda activate swin
+conda create -n lipsformer python=3.7 -y
+conda activate lipsformer
 ```
 
 - Install `CUDA==10.1` with `cudnn7` following
@@ -131,14 +109,14 @@ load data:
 
 ### Evaluation
 
-To evaluate a pre-trained `Swin Transformer` on ImageNet val, run:
+To evaluate a pre-trained `LipsFormer` on ImageNet val, run:
 
 ```bash
 python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> --master_port 12345 main.py --eval \
 --cfg <config-file> --resume <checkpoint> --data-path <imagenet-path> 
 ```
 
-For example, to evaluate the `Swin-B` with a single GPU:
+For example, to evaluate the `LipsFormer-Swin-B` with a single GPU:
 
 ```bash
 python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.py --eval \
@@ -147,7 +125,7 @@ python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.p
 
 ### Training from scratch
 
-To train a `Swin Transformer` on ImageNet from scratch, run:
+To train a `LipsFormer-Swin` on ImageNet from scratch, run:
 
 ```bash
 python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> --master_port 12345  main.py \ 
@@ -169,7 +147,7 @@ python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> --maste
   `--opts TRAIN.EPOCHS 100 TRAIN.WARMUP_EPOCHS 5` will change total epochs to 100 and warm-up epochs to 5.
 - For additional options, see [config](config.py) and run `python main.py --help` to get detailed message.
 
-For example, to train `Swin Transformer` with 8 GPU on a single node for 300 epochs, run:
+For example, to train `LipsFormer` with 8 GPU on a single node for 300 epochs, run:
 
 `Swin-T`:
 
