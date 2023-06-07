@@ -227,6 +227,8 @@ class WindowAttention(nn.Module):
 
         attn = self.attn_drop(attn)
 
+        # The setting of v is slightly different from our paper. In our paper, we use a normalized and then scaled v, but here we directly use a non-normalized v. We tested both versions, both are ok. 
+        # Here, to avoid adding one more parameter $\nu$, we use the current version.
         x = (attn @ v).transpose(1, 2).reshape(B_, N, C)
         x = self.proj(x)
         x = self.proj_drop(x)
