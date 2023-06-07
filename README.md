@@ -20,6 +20,9 @@ In this repo, we release the code base based on Swin. You can easily change it t
 
 <br/>
 
+## Getting Started
+For Image Classification, please see [get_started.md](https://github.com/IDEA-Research/LipsFormer/blob/main/get_started.md) for detailed instructions.
+
 ## Training
 ```
 python -m torch.distributed.launch --nproc_per_node 8 --master_port 12345  main.py \
