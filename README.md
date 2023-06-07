@@ -23,7 +23,7 @@ In this repo, we release the code base based on Swin. You can easily change it t
 ## Training
 ```
 python -m torch.distributed.launch --nproc_per_node 8 --master_port 12345  main.py \
---cfg configs/swin_tiny_patch4_window7_224.yaml --data-path <imagenet-path> --batch-size 128 
+--cfg configs/swin_tiny_patch4_window7_224.yaml --data-path <imagenet-path> --batch-size 32 
 ```
 
 <br/>
